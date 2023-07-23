@@ -1,11 +1,13 @@
-import React from 'react'
-
-
-
-export const Header = () => {
+const Header = (props) => {
     return (
         <header className="App-header">
-            <h2>Wellcome</h2>
+            <h2>{props.title}</h2>
         </header>
     )
 }
+
+Header.defaultProps = {
+    title: "Default Title"
+}
+
+export default Header;
