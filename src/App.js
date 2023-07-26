@@ -20,9 +20,9 @@ function App() {
   }
 
   const addItem = (item) => {
-    const id = items.length ? items[items.length - 1].id + 1 : 1
+    const id = (items && items.length) ? items[items.length - 1].id + 1 : 1
     const addingNewItem = { id, checked: false, item }
-    const listItems = [...items, addingNewItem]
+    const listItems = items ? ([...items, addingNewItem]) : [addingNewItem]
     setAndSaveItems(listItems)
   }
 
@@ -60,13 +60,13 @@ function App() {
       />
       <Content
         items={
-          items.filter(item =>
-            ((item.item).toLowerCase()).includes(search.toLowerCase()))
+          items ? (items.filter(item =>
+            ((item.item).toLowerCase()).includes(search.toLowerCase()))) : []
         }
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
-      <Footer length={items.length} />
+      <Footer length={items ? items.length : 0} />
     </div>
   );
 }
