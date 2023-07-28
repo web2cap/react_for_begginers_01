@@ -76,7 +76,7 @@ function App() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ checked: true })
+      body: JSON.stringify({ checked: myItem[0].checked })
     }
     console.log(updateOptions)
     const itemURL = `${API_URL}/${id}`
